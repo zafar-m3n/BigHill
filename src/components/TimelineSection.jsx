@@ -1,52 +1,46 @@
+// TimelineSection.jsx
 import { Icon } from "@iconify/react";
 
 const milestones = [
   {
-    year: "2019",
-    title: "Company Established",
+    label: "Established in 2019",
+    title: "A Food Industry Business Takes Shape",
     description:
-      "Established in 2019, Big Hill Lanka Pvt Ltd began its journey in Sri Lanka’s food industry by exporting premium spices and seafood.",
+      "Big Hill Lanka Pvt Ltd was established in 2019 and began its journey in Sri Lanka’s food industry by exporting premium spices and seafood.",
     icon: "mdi:office-building-outline",
     accent: "primary",
   },
   {
-    year: "2020",
-    title: "Import Expansion",
+    label: "Export Foundation",
+    title: "Seafood, Spices, and Coconut Products",
     description:
-      "The company expanded into importing high-quality Basmati rice from India and Pakistan to serve the local HORECA and modern trade markets.",
-    icon: "mdi:grain",
+      "The company built its early foundation through export activity, developing relationships with professional buyers and distributors across international markets.",
+    icon: "mdi:ferry",
     accent: "gold",
   },
   {
-    year: "2021",
-    title: "Market Strengthening",
+    label: "Import Expansion",
+    title: "Premium Basmati Rice Supply",
     description:
-      "Big Hill Lanka strengthened its role as a stable and reliable partner to prominent HORECA clients and leading modern trade outlets across the island.",
-    icon: "mdi:store-outline",
+      "Big Hill Lanka expanded into importing high-quality Basmati rice from India and Pakistan to serve local HORECA and modern trade demand.",
+    icon: "mdi:grain",
     accent: "red",
   },
   {
-    year: "2022",
-    title: "Exclusive Distribution Partnerships",
+    label: "Market Growth",
+    title: "HORECA and Modern Trade Presence",
     description:
-      "The company became the exclusive distributor of renowned international brands such as Bikano Bestari and O My Pop.",
-    icon: "mdi:handshake-outline",
+      "The company strengthened its position as a reliable partner for prominent HORECA clients and leading modern trade outlets across Sri Lanka.",
+    icon: "mdi:store-outline",
     accent: "primary",
   },
   {
-    year: "2023",
-    title: "Own Brands Portfolio Growth",
-    description: "Big Hill Lanka continued building its own trusted portfolio with Sultan Gold, Big Star, and Haiwa.",
-    icon: "mdi:star-outline",
-    accent: "gold",
-  },
-  {
-    year: "2024",
-    title: "Growth With Global Ambition",
+    label: "Brand Portfolio",
+    title: "Owned and Exclusive Partner Brands",
     description:
-      "Driven by customer satisfaction and market research, the business continued expanding its product portfolio while strengthening local leadership and global ambition.",
-    icon: "mdi:earth",
-    accent: "red",
+      "Big Hill Lanka continues to grow through its own trusted brands — Sultan Gold, Big Star, and Haiwa — while exclusively distributing Bikano, Bestari, and O My Pop.",
+    icon: "mdi:handshake-outline",
+    accent: "gold",
   },
 ];
 
@@ -76,20 +70,17 @@ export default function TimelineSection() {
 
           return (
             <div
-              key={m.year}
-              className={`flex flex-col md:flex-row gap-6 md:gap-10 items-start ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+              key={m.title}
+              className={`flex flex-col md:flex-row gap-6 md:gap-10 items-start ${
+                i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
             >
               <div className={`w-full md:w-5/12 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                <div
-                  className={`inline-block px-3 py-1 rounded-full text-xs mb-2 ${styles.pill}`}
-                  style={{ fontWeight: 700 }}
-                >
-                  {m.year}
+                <div className={`inline-block px-3 py-1 rounded-full text-xs mb-2 font-bold ${styles.pill}`}>
+                  {m.label}
                 </div>
 
-                <h3 className="text-lg text-charcoal mb-2" style={{ fontWeight: 700 }}>
-                  {m.title}
-                </h3>
+                <h3 className="text-lg text-charcoal mb-2 font-bold">{m.title}</h3>
 
                 <p className="text-sm text-gray-600 leading-relaxed">{m.description}</p>
               </div>

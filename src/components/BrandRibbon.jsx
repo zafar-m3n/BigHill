@@ -1,35 +1,33 @@
-import { Icon } from "@iconify/react";
+// BrandRibbon.jsx
+import sultangold from "../assets/sultangold.webp";
+import bigstar from "../assets/bigstar.webp";
+import bikano from "../assets/bikano.webp";
+import haiwa from "../assets/haiwa.webp";
+import omypop from "../assets/omypop.webp";
+import bestari from "../assets/bestari.webp";
 
 const brands = [
-  { name: "Sultan Gold", icon: "mdi:grain", color: "#D4A72C" },
-  { name: "Big Star", icon: "mdi:star-four-points", color: "#0E6B3C" },
-  { name: "Haiwa", icon: "mdi:food-variant", color: "#B32025" },
-  { name: "Bikano Bestari", icon: "mdi:cookie", color: "#B32025" },
-  { name: "O My Pop", icon: "mdi:popcorn", color: "#B32025" },
+  { name: "Sultan Gold", logo: sultangold },
+  { name: "Big Star", logo: bigstar },
+  { name: "Bikano", logo: bikano },
+  { name: "Haiwa", logo: haiwa },
+  { name: "O My Pop", logo: omypop },
+  { name: "Bestari", logo: bestari },
 ];
 
-const doubled = [...brands, ...brands, ...brands, ...brands];
+const doubled = [...brands, ...brands, ...brands];
 
 export default function BrandRibbon() {
   return (
-    <section className="py-8 bg-white border-y border-primary/10 overflow-hidden">
+    <section className="py-7 bg-cream border-y border-primary/10 overflow-hidden">
       <div className="overflow-hidden">
-        <div className="marquee-track">
+        <div className="marquee-track flex items-center">
           {doubled.map((brand, i) => (
             <div
               key={`${brand.name}-${i}`}
-              className="shrink-0 mx-4 flex cursor-default items-center gap-3 rounded-xl border border-primary/10 bg-cream px-8 py-3 transition-colors duration-200 hover:border-primary/30"
+              className="mx-4 shrink-0 flex items-center justify-center rounded-2xl border border-primary/10 bg-white px-8 py-4 hover:border-primary/30 transition-all duration-200"
             >
-              <div
-                className="flex h-9 w-9 items-center justify-center rounded-lg"
-                style={{ backgroundColor: `${brand.color}18` }}
-              >
-                <Icon icon={brand.icon} style={{ color: brand.color }} className="text-xl" />
-              </div>
-
-              <span className="whitespace-nowrap text-sm text-charcoal" style={{ fontWeight: 700 }}>
-                {brand.name}
-              </span>
+              <img src={brand.logo} alt={brand.name} className="h-12 w-auto object-contain" loading="lazy" />
             </div>
           ))}
         </div>
