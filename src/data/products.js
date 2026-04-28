@@ -5,7 +5,7 @@ export const PRODUCTS = [
     brand: "Sultan Gold",
     name: "1121 Steam XXL Premium Basmati Rice",
     packs: ["5KG"],
-    image: "https://picsum.photos/seed/sultan-gold-rice/800/600",
+    image: "https://picsum.photos/seed/sultan-gold-rice/600/600",
     description: "Premium long-grain basmati rice selected for aroma, consistency, and refined cooking performance.",
   },
   {
@@ -14,7 +14,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Simply Salted Chips",
     packs: ["30g", "60g"],
-    image: "https://picsum.photos/seed/bikano-chips-1/800/600",
+    image: "https://picsum.photos/seed/bikano-chips-1/600/600",
     description: "Classic salted potato chips made for everyday snacking with a crisp, satisfying finish.",
   },
   {
@@ -23,7 +23,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Cream & Onion Chips",
     packs: ["30g", "60g"],
-    image: "https://picsum.photos/seed/bikano-chips-2/800/600",
+    image: "https://picsum.photos/seed/bikano-chips-2/600/600",
     description: "Smooth cream and onion flavour in a crunchy snack format for modern retail shelves.",
   },
   {
@@ -32,7 +32,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Tangy Tomato Chips",
     packs: ["30g", "60g"],
-    image: "https://picsum.photos/seed/bikano-chips-3/800/600",
+    image: "https://picsum.photos/seed/bikano-chips-3/600/600",
     description: "Tangy tomato potato chips with a bold flavour profile and broad consumer appeal.",
   },
   {
@@ -41,7 +41,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Chatak Masala Chips",
     packs: ["30g", "60g"],
-    image: "https://picsum.photos/seed/bikano-chips-4/800/600",
+    image: "https://picsum.photos/seed/bikano-chips-4/600/600",
     description: "Masala-seasoned chips designed for customers who prefer stronger savoury flavours.",
   },
   {
@@ -50,7 +50,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Roasted Peanuts Salt & Pepper",
     packs: ["150g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-1/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-1/600/600",
     description: "Roasted peanut snack with salt and pepper seasoning, ideal for on-the-go snacking.",
   },
   {
@@ -59,7 +59,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Roasted Peanuts Barbeque",
     packs: ["150g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-2/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-2/600/600",
     description: "Barbeque-flavoured roasted peanuts offering a balanced smoky and savoury taste.",
   },
   {
@@ -68,7 +68,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Karare Peanuts",
     packs: ["200g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-3/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-3/600/600",
     description: "Crunchy peanut snack with a signature texture and classic namkeen-style flavour.",
   },
   {
@@ -77,7 +77,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "All In One",
     packs: ["200g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-4/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-4/600/600",
     description: "Mixed namkeen snack blend that combines different textures and savoury flavour notes.",
   },
   {
@@ -86,7 +86,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Kerala Mixture",
     packs: ["150g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-5/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-5/600/600",
     description: "A spiced mixture snack inspired by traditional regional flavour preferences.",
   },
   {
@@ -95,7 +95,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "All Time Mixture",
     packs: ["200g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-6/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-6/600/600",
     description: "Versatile savoury snack blend suitable for everyday retail and impulse purchase occasions.",
   },
   {
@@ -104,7 +104,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Bombay Mixture",
     packs: ["200g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-7/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-7/600/600",
     description: "Bold mixed namkeen with layered textures and a spiced profile inspired by classic Bombay mixtures.",
   },
   {
@@ -113,7 +113,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Cornflakes Mixture",
     packs: ["200g"],
-    image: "https://picsum.photos/seed/bikano-namkeen-8/800/600",
+    image: "https://picsum.photos/seed/bikano-namkeen-8/600/600",
     description: "Crunchy cornflake-based savoury mix created for consumers seeking light, crispy snacking.",
   },
   {
@@ -122,7 +122,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Panjeeri Laddu",
     packs: ["400g"],
-    image: "https://picsum.photos/seed/bikano-sweets-1/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-1/600/600",
     description: "Traditional Indian sweet made for shoppers looking for authentic dessert offerings.",
   },
   {
@@ -131,7 +131,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Besan Laddu",
     packs: ["400g"],
-    image: "https://picsum.photos/seed/bikano-sweets-2/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-2/600/600",
     description: "Classic besan laddu in shelf-stable packaging suited for gifting and household consumption.",
   },
   {
@@ -140,7 +140,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Royal Besan Laddu",
     packs: ["200g"],
-    image: "https://picsum.photos/seed/bikano-sweets-3/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-3/600/600",
     description: "Premium variant of a traditional sweet positioned for elevated festive and retail appeal.",
   },
   {
@@ -149,7 +149,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Dry Fruits Chikki",
     packs: ["100g"],
-    image: "https://picsum.photos/seed/bikano-sweets-4/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-4/600/600",
     description: "Dry fruit-based sweet snack offering crunch and richness in a compact pack format.",
   },
   {
@@ -158,7 +158,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Soan Papdi",
     packs: ["200g"],
-    image: "https://picsum.photos/seed/bikano-sweets-5/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-5/600/600",
     description: "Popular flaky Indian sweet with broad festive and everyday consumer recognition.",
   },
   {
@@ -167,7 +167,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Soan Papdi Original",
     packs: ["250g"],
-    image: "https://picsum.photos/seed/bikano-sweets-6/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-6/600/600",
     description: "Original soan papdi presentation with familiar flavour and dependable shelf presence.",
   },
   {
@@ -176,7 +176,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Soan Papdi Desi Ghee",
     packs: ["250g"],
-    image: "https://picsum.photos/seed/bikano-sweets-7/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-7/600/600",
     description: "Desi ghee variant of soan papdi designed for a richer and more indulgent sweet profile.",
   },
   {
@@ -185,7 +185,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Soan Papdi Choco",
     packs: ["250g"],
-    image: "https://picsum.photos/seed/bikano-sweets-8/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-8/600/600",
     description: "Chocolate-flavoured twist on a traditional sweet to attract broader consumer segments.",
   },
   {
@@ -194,7 +194,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Soan Papdi Orange",
     packs: ["250g"],
-    image: "https://picsum.photos/seed/bikano-sweets-9/800/600",
+    image: "https://picsum.photos/seed/bikano-sweets-9/600/600",
     description: "Orange-flavoured variant that adds a bright citrus note to a familiar sweet product.",
   },
   {
@@ -203,7 +203,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Gulab Jamun",
     packs: ["1kg"],
-    image: "https://picsum.photos/seed/bikano-other-1/800/600",
+    image: "https://picsum.photos/seed/bikano-other-1/600/600",
     description: "Classic dessert product suited for festive, family, and special-occasion consumption.",
   },
   {
@@ -212,7 +212,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Chatax Sticks Chatak Masala",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/bikano-other-2/800/600",
+    image: "https://picsum.photos/seed/bikano-other-2/600/600",
     description: "Masala snack sticks positioned for impulse snacking and bold-flavour shoppers.",
   },
   {
@@ -221,7 +221,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Crunchy Munchy Sweet Chilli",
     packs: ["90g"],
-    image: "https://picsum.photos/seed/bikano-other-3/800/600",
+    image: "https://picsum.photos/seed/bikano-other-3/600/600",
     description: "Crunchy snack with a sweet chilli finish designed for contemporary snacking preferences.",
   },
   {
@@ -230,7 +230,7 @@ export const PRODUCTS = [
     brand: "Bikano",
     name: "Fatax Tangy Tomato Rings",
     packs: ["20g"],
-    image: "https://picsum.photos/seed/bikano-other-4/800/600",
+    image: "https://picsum.photos/seed/bikano-other-4/600/600",
     description: "Tangy tomato ring snack in a compact format for convenience and quick purchase moments.",
   },
   {
@@ -239,7 +239,7 @@ export const PRODUCTS = [
     brand: "Bestari",
     name: "Multipurpose Crispy Frying Flour Mix Original",
     packs: ["150g", "1kg"],
-    image: "https://picsum.photos/seed/bestari-1/800/600",
+    image: "https://picsum.photos/seed/bestari-1/600/600",
     description: "Versatile frying flour mix designed for crisp texture and easy kitchen preparation.",
   },
   {
@@ -248,7 +248,7 @@ export const PRODUCTS = [
     brand: "Bestari",
     name: "Multipurpose Crispy Frying Flour Mix Hot & Spicy",
     packs: ["150g", "1kg"],
-    image: "https://picsum.photos/seed/bestari-2/800/600",
+    image: "https://picsum.photos/seed/bestari-2/600/600",
     description: "Hot and spicy version of the crispy frying flour mix for more flavour-forward applications.",
   },
   {
@@ -257,7 +257,7 @@ export const PRODUCTS = [
     brand: "Bestari",
     name: "Tempura Batter",
     packs: ["150g"],
-    image: "https://picsum.photos/seed/bestari-3/800/600",
+    image: "https://picsum.photos/seed/bestari-3/600/600",
     description: "Tempura batter mix made for light, crisp coating in home and food-service kitchens.",
   },
   {
@@ -266,7 +266,7 @@ export const PRODUCTS = [
     brand: "Bestari",
     name: "Stok Ayam Chicken Stock",
     packs: ["1kg"],
-    image: "https://picsum.photos/seed/bestari-4/800/600",
+    image: "https://picsum.photos/seed/bestari-4/600/600",
     description: "Chicken stock product suited for seasoning, broth enrichment, and flavour development.",
   },
   {
@@ -275,7 +275,7 @@ export const PRODUCTS = [
     brand: "O My Pop",
     name: "Umami Tomato Ketchup Popcorn",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/omypop-1/800/600",
+    image: "https://picsum.photos/seed/omypop-1/600/600",
     description: "Bold tomato ketchup popcorn flavour packaged for modern snacking and gifting appeal.",
   },
   {
@@ -284,7 +284,7 @@ export const PRODUCTS = [
     brand: "O My Pop",
     name: "Heavenly Dark Cocoa Popcorn",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/omypop-2/800/600",
+    image: "https://picsum.photos/seed/omypop-2/600/600",
     description: "Dark cocoa popcorn variant bringing a richer sweet profile to the gourmet snack range.",
   },
   {
@@ -293,7 +293,7 @@ export const PRODUCTS = [
     brand: "O My Pop",
     name: "Ultimate Baked Cheese Popcorn",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/omypop-3/800/600",
+    image: "https://picsum.photos/seed/omypop-3/600/600",
     description: "Cheese-flavoured popcorn developed for shoppers who prefer savoury indulgent snacking.",
   },
   {
@@ -302,7 +302,7 @@ export const PRODUCTS = [
     brand: "O My Pop",
     name: "Sour Cream & Onion Popcorn",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/omypop-4/800/600",
+    image: "https://picsum.photos/seed/omypop-4/600/600",
     description: "Creamy onion popcorn flavour tailored to mainstream savoury snack preferences.",
   },
   {
@@ -311,7 +311,7 @@ export const PRODUCTS = [
     brand: "O My Pop",
     name: "Flaming Barbecue Curry Popcorn",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/omypop-5/800/600",
+    image: "https://picsum.photos/seed/omypop-5/600/600",
     description: "Spiced barbecue curry popcorn for consumers seeking strong, adventurous flavour profiles.",
   },
   {
@@ -320,7 +320,7 @@ export const PRODUCTS = [
     brand: "O My Pop",
     name: "Secret Smoky Barbecue Popcorn",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/omypop-6/800/600",
+    image: "https://picsum.photos/seed/omypop-6/600/600",
     description: "Smoky barbecue popcorn that balances savoury depth with playful snack positioning.",
   },
   {
@@ -329,7 +329,7 @@ export const PRODUCTS = [
     brand: "O My Pop",
     name: "Classic Golden Caramel Popcorn",
     packs: ["70g"],
-    image: "https://picsum.photos/seed/omypop-7/800/600",
+    image: "https://picsum.photos/seed/omypop-7/600/600",
     description: "Golden caramel popcorn with a sweet, familiar profile suited for wide consumer appeal.",
   },
   {
@@ -338,7 +338,7 @@ export const PRODUCTS = [
     brand: "Big Star",
     name: "100% Pure Sunflower Oil",
     packs: ["1L", "5L", "20L"],
-    image: "https://picsum.photos/seed/bigstar-oil/800/600",
+    image: "https://picsum.photos/seed/bigstar-oil/600/600",
     description: "Premium sunflower oil positioned for purity, versatility, and everyday culinary use.",
   },
 ];

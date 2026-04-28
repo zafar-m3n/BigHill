@@ -1,16 +1,16 @@
-// Brands.jsx
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import SectionHeader from "../components/SectionHeader";
-import CTASection from "../components/CTASection";
-import RevealOnScroll from "../components/RevealOnScroll";
 
-import sultanGoldLogo from "../assets/sultangold.webp";
-import bigStarLogo from "../assets/bigstar.webp";
-import haiwaLogo from "../assets/haiwa.webp";
-import bikanoLogo from "../assets/bikano.webp";
-import bestariLogo from "../assets/bestari.webp";
-import omypopLogo from "../assets/omypop.webp";
+import SectionHeader from "@/components/SectionHeader";
+import CTASection from "@/components/CTASection";
+import AnimatedContent from "@/components/AnimatedContent";
+
+import sultanGoldLogo from "@/assets/sultangold.webp";
+import bigStarLogo from "@/assets/bigstar.webp";
+import haiwaLogo from "@/assets/haiwa.webp";
+import bikanoLogo from "@/assets/bikano.webp";
+import bestariLogo from "@/assets/bestari.webp";
+import omypopLogo from "@/assets/omypop.webp";
 
 const ownBrands = [
   {
@@ -21,7 +21,7 @@ const ownBrands = [
     category: "Rice",
     logo: sultanGoldLogo,
     icon: "mdi:grain",
-    color: "#D4A72C",
+    accent: "gold",
     badge: "Owned Brand",
     products: ["1121 Steam XXL Premium Basmati Rice", "5KG Pack"],
   },
@@ -33,7 +33,7 @@ const ownBrands = [
     category: "Edible Oil",
     logo: bigStarLogo,
     icon: "mdi:bottle-tonic-plus",
-    color: "#0E6B3C",
+    accent: "primary",
     badge: "Owned Brand",
     products: ["100% Pure Sunflower Oil", "1L", "5L", "20L"],
   },
@@ -45,7 +45,7 @@ const ownBrands = [
     category: "Chilled & Frozen Foods",
     logo: haiwaLogo,
     icon: "mdi:snowflake",
-    color: "#B32025",
+    accent: "red",
     badge: "Owned Brand",
     products: ["Core Proteins", "Prepared Meats", "Value-Added Products", "Gourmet Sauces"],
   },
@@ -60,7 +60,7 @@ const partnerBrands = [
     category: "Snacks, Namkeen & Sweets",
     logo: bikanoLogo,
     icon: "mdi:cookie-outline",
-    color: "#B32025",
+    accent: "red",
     badge: "Exclusive Distributor",
     products: ["Chips", "Namkeen", "Mixtures", "Ambient Sweets", "Soan Papdi", "Gulab Jamun"],
   },
@@ -72,7 +72,7 @@ const partnerBrands = [
     category: "Cooking Mixes & Premixes",
     logo: bestariLogo,
     icon: "mdi:food-turkey",
-    color: "#0E6B3C",
+    accent: "primary",
     badge: "Exclusive Distributor",
     products: ["Crispy Frying Flour Mix", "Hot & Spicy Mix", "Chicken Stock", "Tempura Batter"],
   },
@@ -84,7 +84,7 @@ const partnerBrands = [
     category: "Flavoured Popcorn",
     logo: omypopLogo,
     icon: "mdi:popcorn",
-    color: "#D4A72C",
+    accent: "gold",
     badge: "Exclusive Distributor",
     products: [
       "Tomato Ketchup",
@@ -106,15 +106,35 @@ const allBrands = [
   { name: "O My Pop", logo: omypopLogo, type: "Exclusive Partner Brand" },
 ];
 
+const accentClasses = {
+  primary: {
+    soft: "bg-primary/10 text-primary",
+    icon: "bg-primary/10 text-primary",
+    text: "text-primary",
+    border: "border-primary/20",
+  },
+  gold: {
+    soft: "bg-gold/15 text-gold",
+    icon: "bg-gold/15 text-gold",
+    text: "text-gold",
+    border: "border-gold/25",
+  },
+  red: {
+    soft: "bg-red/10 text-red",
+    icon: "bg-red/10 text-red",
+    text: "text-red",
+    border: "border-red/20",
+  },
+};
+
 function BrandCard({ brand }) {
+  const styles = accentClasses[brand.accent];
+
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-primary/10 bg-cream shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl">
+    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-primary/10 bg-secondary shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl">
       <div className="relative flex h-52 items-center justify-center bg-white p-8">
-        <div
-          className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-2xl"
-          style={{ backgroundColor: `${brand.color}15` }}
-        >
-          <Icon icon={brand.icon} className="text-2xl" style={{ color: brand.color }} />
+        <div className={`absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-2xl ${styles.icon}`}>
+          <Icon icon={brand.icon} className="text-2xl" />
         </div>
 
         <img
@@ -125,39 +145,20 @@ function BrandCard({ brand }) {
       </div>
 
       <div className="flex flex-1 flex-col p-7">
-        <span
-          className="mb-4 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs uppercase tracking-wider"
-          style={{
-            backgroundColor: `${brand.color}15`,
-            color: brand.color,
-            fontWeight: 700,
-          }}
-        >
-          <Icon icon={brand.badge === "Owned Brand" ? "mdi:shield-star-outline" : "mdi:handshake-outline"} />
-          {brand.badge} / {brand.category}
-        </span>
+        <h3 className="text-2xl font-extrabold text-charcoal">{brand.name}</h3>
 
-        <h3 className="text-2xl text-charcoal" style={{ fontWeight: 800 }}>
-          {brand.name}
-        </h3>
+        <p className={`mt-2 text-sm font-semibold italic ${styles.text}`}>{brand.tagline}</p>
 
-        <p className="mt-2 text-sm italic" style={{ color: brand.color, fontWeight: 600 }}>
-          {brand.tagline}
-        </p>
-
-        <p className="mt-4 text-sm leading-relaxed text-gray-600">{brand.description}</p>
+        <p className="mt-4 text-sm leading-relaxed text-charcoal/65">{brand.description}</p>
 
         <div className="mt-6">
-          <p className="mb-3 text-xs uppercase tracking-wider text-gray-400" style={{ fontWeight: 700 }}>
-            Product Focus
-          </p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-charcoal/40">Product Focus</p>
 
           <div className="flex flex-wrap gap-2">
             {brand.products.map((product) => (
               <span
                 key={product}
-                className="rounded-full border border-primary/10 bg-white px-3 py-1.5 text-xs text-charcoal"
-                style={{ fontWeight: 600 }}
+                className="rounded-full border border-primary/10 bg-white px-3 py-1.5 text-xs font-semibold text-charcoal"
               >
                 {product}
               </span>
@@ -167,8 +168,7 @@ function BrandCard({ brand }) {
 
         <Link
           to="/contact"
-          className="mt-7 inline-flex items-center gap-2 text-sm transition-all duration-200 hover:gap-3"
-          style={{ color: brand.color, fontWeight: 700 }}
+          className={`mt-7 inline-flex items-center gap-2 text-sm font-bold transition-all duration-200 hover:gap-3 ${styles.text}`}
         >
           Enquire About {brand.name}
           <Icon icon="mdi:arrow-right" />
@@ -178,50 +178,32 @@ function BrandCard({ brand }) {
   );
 }
 
-export default function Brands() {
+function Brands() {
   return (
     <main>
-      <section
-        className="relative overflow-hidden px-6 pb-20 pt-32"
-        style={{ background: "linear-gradient(135deg, #0a5230 0%, #0E6B3C 100%)" }}
-      >
-        <div className="absolute right-0 top-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-white/5" />
+      <section className="relative overflow-hidden bg-linear-to-br from-primary to-primary px-6 pb-20 pt-32">
+        <div className="absolute right-0 top-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-secondary/5" />
 
         <div className="relative z-10 mx-auto max-w-7xl text-center">
-          <div
-            className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs text-white/80"
-            style={{ fontWeight: 600 }}
-          >
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-xs font-semibold text-secondary/80">
             <Icon icon="mdi:star-four-points" />
             Brand Portfolio
           </div>
 
-          <h1
-            className="mb-5 text-white"
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontWeight: 600,
-              fontSize: "clamp(2.4rem, 5vw, 3.75rem)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.015em",
-            }}
-          >
-            Owned Brands & <span style={{ color: "#D4A72C", fontStyle: "italic" }}>Exclusive Partners</span>
+          <h1 className="mb-5 font-serif text-5xl font-semibold leading-tight tracking-tight text-secondary sm:text-6xl lg:text-7xl">
+            Owned Brands & <span className="italic text-gold">Exclusive Partners</span>
           </h1>
 
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/70">
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-secondary/70">
             Big Hill Lanka’s portfolio brings together trusted own brands and exclusive international partner brands
             across rice, edible oil, chilled and frozen foods, snacks, sweets, cooking mixes, and popcorn.
           </p>
         </div>
 
-        <div
-          className="pointer-events-none absolute bottom-0 left-0 right-0 h-28"
-          style={{ background: "linear-gradient(to bottom, transparent 0%, #FAF8F3 100%)" }}
-        />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-linear-to-b from-transparent to-secondary" />
       </section>
 
-      <section className="bg-cream px-6 py-20">
+      <section className="bg-secondary px-6 py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Brand Network"
@@ -231,26 +213,24 @@ export default function Brands() {
           />
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {allBrands.map((brand, i) => (
-              <RevealOnScroll key={brand.name} direction="up" delay={i * 60}>
+            {allBrands.map((brand, index) => (
+              <AnimatedContent key={brand.name} direction="vertical" delay={index * 60}>
                 <div className="h-full rounded-2xl border border-primary/10 bg-white p-5 text-center shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
                   <div className="mb-4 flex h-20 items-center justify-center">
                     <img src={brand.logo} alt={brand.name} className="max-h-16 max-w-full object-contain" />
                   </div>
 
-                  <h3 className="text-sm text-charcoal" style={{ fontWeight: 800 }}>
-                    {brand.name}
-                  </h3>
+                  <h3 className="text-sm font-extrabold text-charcoal">{brand.name}</h3>
 
-                  <p className="mt-1 text-[11px] text-gray-500">{brand.type}</p>
+                  <p className="mt-1 text-[11px] text-charcoal/50">{brand.type}</p>
                 </div>
-              </RevealOnScroll>
+              </AnimatedContent>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-6 py-24">
+      <section className="bg-secondary px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Own Brands"
@@ -260,16 +240,16 @@ export default function Brands() {
           />
 
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {ownBrands.map((brand, i) => (
-              <RevealOnScroll key={brand.name} direction="up" delay={i * 90}>
+            {ownBrands.map((brand, index) => (
+              <AnimatedContent key={brand.name} direction="vertical" delay={index * 90}>
                 <BrandCard brand={brand} />
-              </RevealOnScroll>
+              </AnimatedContent>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-6 py-24">
+      <section className="bg-secondary px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Exclusive Partner Brands"
@@ -279,77 +259,24 @@ export default function Brands() {
           />
 
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {partnerBrands.map((brand, i) => (
-              <RevealOnScroll key={brand.name} direction="up" delay={i * 90}>
+            {partnerBrands.map((brand, index) => (
+              <AnimatedContent key={brand.name} direction="vertical" delay={index * 90}>
                 <BrandCard brand={brand} />
-              </RevealOnScroll>
+              </AnimatedContent>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <RevealOnScroll direction="up">
-            <div
-              className="relative overflow-hidden rounded-3xl p-10 md:p-16"
-              style={{ background: "linear-gradient(135deg, #1E1E1E 0%, #2d2d2d 100%)" }}
-            >
-              <div className="absolute right-0 top-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-primary/20" />
-              <div className="absolute bottom-0 left-0 h-48 w-48 -translate-x-1/3 translate-y-1/3 rounded-full bg-gold/10" />
-
-              <div className="relative z-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2">
-                <div>
-                  <div
-                    className="mb-5 inline-flex items-center gap-2 rounded-full bg-gold/20 px-3 py-1.5 text-xs text-gold"
-                    style={{ fontWeight: 700 }}
-                  >
-                    <Icon icon="mdi:handshake" />
-                    Brand Partnership
-                  </div>
-
-                  <h3 className="mb-4 text-3xl leading-tight text-white" style={{ fontWeight: 800 }}>
-                    Represent Your Brand in Sri Lanka
-                  </h3>
-
-                  <p className="text-base leading-relaxed text-white/70">
-                    Looking for a reliable local partner to distribute and grow your brand in Sri Lanka? Big Hill Lanka
-                    brings market knowledge, trade relationships, and distribution capability across multiple FMCG
-                    product categories.
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    "Distribution reach across key Sri Lankan markets",
-                    "Relationships across retail, wholesale, HORECA, and food service",
-                    "Experience across rice, snacks, sweets, oils, and ready-to-cook products",
-                    "Commercially focused partnership approach",
-                  ].map((text) => (
-                    <div key={text} className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/20">
-                        <Icon icon="mdi:check-bold" className="text-sm text-primary" />
-                      </div>
-                      <p className="text-sm leading-relaxed text-white/80">{text}</p>
-                    </div>
-                  ))}
-
-                  <Link
-                    to="/contact"
-                    className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-lg"
-                    style={{ fontWeight: 700 }}
-                  >
-                    Discuss Partnership
-                    <Icon icon="mdi:arrow-right" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      <CTASection />
+      <CTASection
+        headline="Represent Your Brand in Sri Lanka"
+        subtitle="Looking for a reliable local partner to distribute and grow your brand? Big Hill Lanka brings strong market relationships, proven distribution capability, and deep FMCG experience across Sri Lanka."
+        primaryLabel="Discuss Partnership"
+        primaryTo="/contact"
+        secondaryLabel="View Our Brands"
+      />
     </main>
   );
 }
+
+export default Brands;

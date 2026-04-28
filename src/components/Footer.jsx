@@ -14,35 +14,40 @@ const brands = ["Sultan Gold", "Big Star", "Haiwa", "Bikano", "Bestari", "O My P
 
 const socials = [
   {
-    icon: "mdi:web",
-    label: "Website",
-    href: "https://www.bighill.lk",
+    icon: "mdi:facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/bighill.lk",
   },
   {
-    icon: "mdi:email-outline",
-    label: "Email",
-    href: "mailto:order@bighill.lk",
+    icon: "mdi:instagram",
+    label: "Instagram",
+    href: "https://www.instagram.com/bighill.lk/",
   },
   {
-    icon: "mdi:whatsapp",
-    label: "WhatsApp",
-    href: "https://wa.me/94771672564",
+    icon: "ic:baseline-tiktok",
+    label: "TikTok",
+    href: "https://www.tiktok.com/@bighill.lk",
+  },
+  {
+    icon: "mdi:linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/bighill/",
   },
 ];
 
-export default function Footer() {
+function Footer() {
   return (
-    <footer className="bg-charcoal text-white">
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-5">
+    <footer className="bg-charcoal text-secondary">
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16">
+        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <Link to="/" className="mb-5 inline-block">
               <img src={logoWhite} alt="Big Hill Lanka" className="h-14 w-auto object-contain" />
             </Link>
 
-            <p className="text-sm text-white/65 leading-relaxed mb-6">
-              Big Hill Lanka Pvt Ltd is a trusted FMCG import, export, and distribution company serving businesses
-              across Sri Lanka with a growing portfolio of quality brands.
+            <p className="mb-6 text-sm leading-relaxed text-secondary/65">
+              Trusted importer & distributor of premium FMCG, serving supermarkets, HORECA, and wholesale markets
+              worldwide.
             </p>
 
             <div className="flex items-center gap-3">
@@ -50,28 +55,28 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  target={social.href.startsWith("http") ? "_blank" : undefined}
-                  rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary/10 text-secondary transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold hover:text-charcoal"
                 >
-                  <Icon icon={social.icon} className="text-lg text-white" />
+                  <Icon icon={social.icon} className="text-lg" />
                 </a>
               ))}
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-[0.2em] text-white/45 mb-5">Quick Links</h4>
+            <h4 className="mb-5 text-sm font-bold uppercase tracking-widest text-secondary/45">Quick Links</h4>
 
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="group flex items-center gap-2 text-sm text-secondary/70 transition-colors hover:text-secondary"
                   >
-                    <span className="w-1 h-1 rounded-full bg-gold group-hover:w-3 transition-all duration-200 inline-block" />
+                    <span className="inline-block h-1 w-1 rounded-full bg-gold transition-all duration-200 group-hover:w-3" />
                     {link.label}
                   </Link>
                 </li>
@@ -80,16 +85,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-[0.2em] text-white/45 mb-5">Our Brands</h4>
+            <h4 className="mb-5 text-sm font-bold uppercase tracking-widest text-secondary/45">Our Brands</h4>
 
             <ul className="space-y-2.5">
               {brands.map((brand) => (
                 <li key={brand}>
                   <Link
                     to="/brands"
-                    className="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-2 group"
+                    className="group flex items-center gap-2 text-sm text-secondary/70 transition-colors hover:text-secondary"
                   >
-                    <span className="w-1 h-1 rounded-full bg-primary group-hover:w-3 transition-all duration-200 inline-block" />
+                    <span className="inline-block h-1 w-1 rounded-full bg-gold transition-all duration-200 group-hover:w-3" />
                     {brand}
                   </Link>
                 </li>
@@ -98,12 +103,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-[0.2em] text-white/45 mb-5">Contact Us</h4>
+            <h4 className="mb-5 text-sm font-bold uppercase tracking-widest text-secondary/45">Contact Us</h4>
 
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Icon icon="mdi:map-marker" className="text-gold text-lg mt-0.5 shrink-0" />
-                <span className="text-sm text-white/70 leading-relaxed">
+                <Icon icon="mdi:map-marker" className="mt-0.5 shrink-0 text-lg text-gold" />
+                <span className="text-sm leading-relaxed text-secondary/70">
                   4th Floor, Forbes &amp; Walkers Building,
                   <br />
                   38/46 Nawam Mawatha,
@@ -113,26 +118,29 @@ export default function Footer() {
               </li>
 
               <li className="flex items-center gap-3">
-                <Icon icon="mdi:phone" className="text-primary-light text-lg shrink-0" />
-                <a href="tel:+94771672564" className="text-sm text-white/70 hover:text-white transition-colors">
+                <Icon icon="mdi:phone" className="shrink-0 text-lg text-gold" />
+                <a href="tel:+94771672564" className="text-sm text-secondary/70 transition-colors hover:text-secondary">
                   +94 77 167 2564
                 </a>
               </li>
 
               <li className="flex items-center gap-3">
-                <Icon icon="mdi:email-outline" className="text-primary-light text-lg shrink-0" />
-                <a href="mailto:order@bighill.lk" className="text-sm text-white/70 hover:text-white transition-colors">
+                <Icon icon="mdi:email-outline" className="shrink-0 text-lg text-gold" />
+                <a
+                  href="mailto:order@bighill.lk"
+                  className="text-sm text-secondary/70 transition-colors hover:text-secondary"
+                >
                   order@bighill.lk
                 </a>
               </li>
 
               <li className="flex items-center gap-3">
-                <Icon icon="mdi:web" className="text-primary-light text-lg shrink-0" />
+                <Icon icon="mdi:web" className="shrink-0 text-lg text-gold" />
                 <a
                   href="https://www.bighill.lk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white/70 hover:text-white transition-colors"
+                  className="text-sm text-secondary/70 transition-colors hover:text-secondary"
                 >
                   www.bighill.lk
                 </a>
@@ -141,12 +149,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-secondary/10 pt-8 md:flex-row">
+          <p className="text-xs text-secondary/40">
             &copy; {new Date().getFullYear()} Big Hill Lanka Pvt Ltd. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-1 text-xs text-white/40">
+          <div className="flex items-center gap-1 text-xs text-secondary/40">
             <span>Built for growth</span>
             <span className="text-gold">•</span>
             <span>Powered by trusted distribution</span>
@@ -156,3 +164,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;

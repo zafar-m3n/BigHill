@@ -1,10 +1,9 @@
-// BrandRibbon.jsx
-import sultangold from "../assets/sultangold.webp";
-import bigstar from "../assets/bigstar.webp";
-import bikano from "../assets/bikano.webp";
-import haiwa from "../assets/haiwa.webp";
-import omypop from "../assets/omypop.webp";
-import bestari from "../assets/bestari.webp";
+import sultangold from "@/assets/sultangold.webp";
+import bigstar from "@/assets/bigstar.webp";
+import bikano from "@/assets/bikano.webp";
+import haiwa from "@/assets/haiwa.webp";
+import omypop from "@/assets/omypop.webp";
+import bestari from "@/assets/bestari.webp";
 
 const brands = [
   { name: "Sultan Gold", logo: sultangold },
@@ -15,17 +14,17 @@ const brands = [
   { name: "Bestari", logo: bestari },
 ];
 
-const doubled = [...brands, ...brands, ...brands];
+const repeatedBrands = [...brands, ...brands, ...brands];
 
-export default function BrandRibbon() {
+function BrandRibbon() {
   return (
-    <section className="py-7 bg-cream border-y border-primary/10 overflow-hidden">
+    <section className="overflow-hidden border-y border-primary/10 bg-secondary py-7">
       <div className="overflow-hidden">
-        <div className="marquee-track flex items-center">
-          {doubled.map((brand, i) => (
+        <div className="flex w-max animate-marquee items-center hover:[animation-play-state:paused]">
+          {repeatedBrands.map((brand, index) => (
             <div
-              key={`${brand.name}-${i}`}
-              className="mx-4 shrink-0 flex items-center justify-center rounded-2xl border border-primary/10 bg-white px-8 py-4 hover:border-primary/30 transition-all duration-200"
+              key={`${brand.name}-${index}`}
+              className="mx-4 flex shrink-0 items-center justify-center rounded-2xl border border-primary/10 bg-white px-8 py-4 transition-all duration-200 hover:border-primary/30"
             >
               <img src={brand.logo} alt={brand.name} className="h-12 w-auto object-contain" loading="lazy" />
             </div>
@@ -35,3 +34,5 @@ export default function BrandRibbon() {
     </section>
   );
 }
+
+export default BrandRibbon;

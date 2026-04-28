@@ -1,27 +1,22 @@
-// Home.jsx
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import BrandRibbon from "../components/BrandRibbon";
-import SectionHeader from "../components/SectionHeader";
-import CTASection from "../components/CTASection";
-import RevealOnScroll from "../components/RevealOnScroll";
 
-import homeAbout from "../assets/homeAbout.webp";
-import hero1 from "../assets/hero1.webp";
-import hero2 from "../assets/hero2.webp";
-import hero3 from "../assets/hero3.webp";
+import BrandRibbon from "@/components/BrandRibbon";
+import BrandNetwork from "@/components/BrandNetwork";
+import SectionHeader from "@/components/SectionHeader";
+import CTASection from "@/components/CTASection";
+import AnimatedContent from "@/components/AnimatedContent";
 
-import rice from "../assets/rice.webp";
-import fmcg from "../assets/fmcg.webp";
-import warehouse from "../assets/warehouse.webp";
-import sunflower from "../assets/sunflower.webp";
-import popcorn from "../assets/popcorn.webp";
-import BrandNetwork from "../components/BrandNetwork";
+import homeAbout from "@/assets/homeAbout.webp";
+import hero1 from "@/assets/hero1.webp";
+import hero2 from "@/assets/hero2.webp";
+import hero3 from "@/assets/hero3.webp";
 
-const SERIF = {
-  fontFamily: "'Instrument Serif', serif",
-  fontWeight: 400,
-};
+import rice from "@/assets/rice.webp";
+import fmcg from "@/assets/fmcg.webp";
+import warehouse from "@/assets/warehouse.webp";
+import sunflower from "@/assets/sunflower.webp";
+import popcorn from "@/assets/popcorn.webp";
 
 const categories = [
   {
@@ -63,183 +58,215 @@ const whyUs = [
     title: "Rapid Market Share Creation",
     description:
       "We possess a proven, agile strategy for quickly seizing and securing significant market share for our portfolio brands across key consumer segments.",
-    color: "#0E6B3C",
+    accent: "primary",
   },
   {
     icon: "mdi:rocket-launch-outline",
     title: "Brand Launch and Building",
     description: "Our specialized expertise ensures the successful introduction and rapid scale-up of new brands.",
-    color: "#B32025",
+    accent: "red",
   },
   {
     icon: "mdi:account-group-outline",
     title: "Strong Sales & Field Team",
     description: "A highly motivated sales force delivering deep market penetration and retail visibility.",
-    color: "#0E6B3C",
+    accent: "primary",
   },
   {
     icon: "mdi:warehouse",
     title: "10,000+ Sq Ft Facility",
     description: "Modern warehousing and distribution operations built for dependable throughput.",
-    color: "#D4A72C",
+    accent: "gold",
   },
 ];
 
 const stats = [
-  { value: "2019", label: "Since" },
-  { value: "10,000+", label: "Sq Ft" },
-  { value: "6+", label: "Brands" },
-  { value: "Islandwide", label: "Reach" },
+  { value: "2019", label: "Established" },
+  { value: "750+", label: "HORECA" },
+  { value: "1,000+", label: "Large Modern Markets" },
+  { value: "2,000+", label: "Modern Markets" },
+  { value: "40,000+", label: "Retailers" },
+  { value: "Islandwide", label: "Coverage" },
 ];
 
-export default function Home() {
+const accentClasses = {
+  primary: {
+    bg: "bg-primary/10",
+    text: "text-primary",
+  },
+  red: {
+    bg: "bg-red/10",
+    text: "text-red",
+  },
+  gold: {
+    bg: "bg-gold/15",
+    text: "text-gold",
+  },
+};
+
+function Home() {
   return (
     <main>
-      {/* HERO */}
-      <section
-        className="relative min-h-screen flex items-center overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #0a5230 0%, #0E6B3C 55%, #13854a 100%)",
-        }}
-      >
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-0 w-150 h-150 rounded-full bg-white/5 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-100 h-100 rounded-full bg-gold/10 -translate-x-1/2 translate-y-1/3" />
+      <section className="relative overflow-hidden bg-linear-to-b from-primary via-primary to-secondary">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute right-0 top-20 h-80 w-80 translate-x-1/3 rounded-full bg-secondary/5 md:h-120 md:w-120 lg:h-150 lg:w-150" />
+          <div className="absolute bottom-0 left-0 h-72 w-72 -translate-x-1/2 translate-y-1/3 rounded-full bg-gold/10 md:h-100 md:w-100" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen">
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-xs mb-8 backdrop-blur-sm font-semibold">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              Business Profile
+        <div className="relative z-10 mx-auto grid min-h-dvh max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-32 lg:grid-cols-2 lg:pb-24 lg:pt-28">
+          <div className="max-w-2xl">
+            <AnimatedContent direction="vertical" distance={24}>
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-xs font-semibold text-secondary/80 backdrop-blur-sm">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-gold" />
+                Business Profile
+              </div>
+            </AnimatedContent>
+
+            <AnimatedContent direction="vertical" distance={32} delay={80}>
+              <h1 className="mb-6 font-serif text-5xl font-normal uppercase leading-none tracking-tight text-secondary sm:text-6xl lg:text-7xl">
+                Big Hill Lanka Pvt Ltd
+                <br />
+                <span className="capitalize italic text-gold">Since 2019</span>
+              </h1>
+            </AnimatedContent>
+
+            <AnimatedContent direction="vertical" distance={32} delay={140}>
+              <h2 className="mb-2 max-w-xl text-xl font-bold leading-relaxed text-secondary/75">
+                Powering Sri Lanka's Food Supply Chain
+              </h2>
+
+              <p className="mb-10 max-w-xl text-base leading-relaxed text-secondary/75">
+                Trusted importer & distributor of premium FMCG, serving supermarkets, HORECA, and wholesale markets
+                worldwide.
+              </p>
+            </AnimatedContent>
+
+            <AnimatedContent direction="vertical" distance={32} delay={200}>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link
+                  to="/products"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-7 py-3.5 text-sm font-bold text-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold hover:text-charcoal hover:shadow-xl"
+                >
+                  <Icon icon="mdi:package-variant" />
+                  Explore Products
+                </Link>
+
+                <Link
+                  to="/about"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-secondary/30 px-7 py-3.5 text-sm font-bold text-secondary transition-all duration-200 hover:-translate-y-0.5 hover:bg-secondary/10"
+                >
+                  View Profile
+                  <Icon icon="mdi:arrow-right" className="text-gold" />
+                </Link>
+              </div>
+            </AnimatedContent>
+          </div>
+
+          <AnimatedContent direction="horizontal" distance={40}>
+            <div className="relative hidden lg:block">
+              <div className="overflow-hidden rounded-2xl shadow-2xl">
+                <img src={hero1} alt="Big Hill Lanka" className="h-80 w-full object-cover" />
+              </div>
+
+              <div className="absolute -bottom-6 -left-8 w-44 overflow-hidden rounded-xl border-4 border-secondary shadow-xl">
+                <img src={hero2} alt="Distribution" className="h-28 w-full object-cover" />
+              </div>
+
+              <div className="absolute -right-6 -top-6 w-36 overflow-hidden rounded-xl border-4 border-secondary shadow-xl">
+                <img src={hero3} alt="Warehouse" className="h-24 w-full object-cover" />
+              </div>
+
+              <div className="absolute -right-6 bottom-20 max-w-44 rounded-2xl bg-secondary p-4 shadow-xl">
+                <div className="mb-2 flex items-center gap-2">
+                  <Icon icon="mdi:check-circle" className="text-lg text-primary" />
+                  <span className="text-xs font-bold text-charcoal">Trusted Supply</span>
+                </div>
+                <p className="text-xs leading-relaxed text-charcoal/55">
+                  Reliable stock flow and strong nationwide channel support
+                </p>
+              </div>
             </div>
+          </AnimatedContent>
+        </div>
+      </section>
 
-            <h1
-              className="text-white mb-6"
-              style={{
-                ...SERIF,
-                fontSize: "clamp(2.8rem, 6vw, 4.6rem)",
-                lineHeight: 1.05,
-              }}
-            >
-              Big Hill Lanka Pvt Ltd
-              <br />
-              <span style={{ color: "#D4A72C", fontStyle: "italic" }}>Since 2019</span>
-            </h1>
-
-            <p className="text-white/75 text-lg leading-relaxed max-w-xl mb-10">
-              A trusted name in food distribution, import, export, FMCG brand building, HORECA supply, and reliable
-              nationwide logistics across Sri Lanka.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/products"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-primary text-sm font-bold hover:bg-cream transition-all duration-200"
-              >
-                <Icon icon="mdi:package-variant" />
-                Explore Products
-              </Link>
-
-              <Link
-                to="/about"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/30 text-white text-sm font-bold hover:bg-white/10 transition-all duration-200"
-              >
-                View Profile
-                <Icon icon="mdi:arrow-right" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-4 gap-4 mt-14 pt-10 border-t border-white/20">
+      <section className="-mt-20 bg-secondary px-6 pb-14 overflow-hidden">
+        <div className="relative z-20 mx-auto max-w-7xl">
+          <AnimatedContent direction="vertical" distance={32}>
+            <div className="grid grid-cols-2 gap-4 rounded-3xl border border-primary/10 bg-white p-5 shadow-xl shadow-primary/5 lg:grid-cols-6 lg:p-6">
               {stats.map((item) => (
-                <div key={item.label}>
-                  <div className="text-2xl md:text-3xl text-white font-extrabold">{item.value}</div>
-                  <div className="text-xs text-white/60 mt-1">{item.label}</div>
+                <div
+                  key={item.label}
+                  className="rounded-2xl border border-primary/10 bg-secondary p-3 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
+                >
+                  <div className="text-2xl font-extrabold leading-tight text-primary lg:text-2xl">
+                    {item.value}
+                  </div>
+                  <div className="mt-2 text-xs font-semibold uppercase tracking-wide text-charcoal/55">
+                    {item.label}
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* RIGHT SIDE */}
-          <div className="relative hidden lg:block">
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img src={hero1} alt="Big Hill Lanka" className="w-full h-80 object-cover" />
-            </div>
-
-            <div className="absolute -bottom-6 -left-8 w-44 rounded-xl overflow-hidden shadow-xl border-4 border-white">
-              <img src={hero2} alt="Distribution" className="w-full h-28 object-cover" />
-            </div>
-
-            <div className="absolute -top-6 -right-6 w-36 rounded-xl overflow-hidden shadow-xl border-4 border-white">
-              <img src={hero3} alt="Warehouse" className="w-full h-24 object-cover" />
-            </div>
-
-            <div className="absolute bottom-20 -right-6 bg-white rounded-2xl p-4 shadow-xl max-w-44">
-              <div className="flex items-center gap-2 mb-2">
-                <Icon icon="mdi:check-circle" className="text-primary text-lg" />
-                <span className="text-xs font-bold text-charcoal">Trusted Supply</span>
-              </div>
-              <p className="text-[11px] text-gray-500">Reliable stock flow and strong nationwide channel support</p>
-            </div>
-          </div>
+          </AnimatedContent>
         </div>
       </section>
 
       <BrandRibbon />
       <BrandNetwork />
 
-      {/* ABOUT */}
-      <section className="py-24 px-6 bg-cream">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <RevealOnScroll direction="left">
+      <section className="bg-secondary px-6 py-24 overflow-hidden">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          <AnimatedContent direction="horizontal" reverse>
             <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-xl">
-                <img src={homeAbout} alt="About Big Hill" className="w-full h-96 object-cover" />
+              <div className="overflow-hidden rounded-3xl shadow-xl">
+                <img src={homeAbout} alt="About Big Hill" className="h-80 w-full object-cover sm:h-96" />
               </div>
 
-              <div className="absolute -bottom-6 -right-6 bg-primary text-white rounded-2xl p-6 shadow-xl max-w-56">
+              <div className="absolute -bottom-6 right-4 max-w-56 rounded-2xl bg-primary p-6 text-secondary shadow-xl sm:-right-6">
                 <div className="text-3xl font-extrabold">FMCG</div>
-                <div className="text-sm text-white/80 mt-1">Distribution & HORECA Supply</div>
+                <div className="mt-1 text-sm text-secondary/80">Distribution & HORECA Supply</div>
               </div>
             </div>
-          </RevealOnScroll>
+          </AnimatedContent>
 
-          <RevealOnScroll direction="right">
-            <SectionHeader
-              eyebrow="About Us"
-              title="A Trusted Name in Food Distribution"
-              subtitle="Established in 2019, Big Hill Lanka Pvt Ltd is a leading distributor and exporter serving Sri Lanka through modern trade, HORECA supply, and strategic brand partnerships."
-            />
+          <AnimatedContent direction="horizontal">
+            <div>
+              <SectionHeader
+                eyebrow="About Us"
+                title="A Trusted Name in Food Distribution"
+                subtitle="Established in 2019, Big Hill Lanka Pvt Ltd is a leading distributor and exporter serving Sri Lanka through modern trade, HORECA supply, and strategic brand partnerships."
+              />
 
-            <div className="space-y-4 mt-8">
-              {[
-                "Exclusive distribution of Bikano, Bestari, and O My Pop.",
-                "Own brands include Sultan Gold, Big Star, and Haiwa.",
-                "Trusted by HORECA buyers and leading modern trade outlets.",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon icon="mdi:check-bold" className="text-primary text-sm" />
+              <div className="mt-8 space-y-4">
+                {[
+                  "Exclusive distribution of Bikano, Bestari, and O My Pop.",
+                  "Own brands include Sultan Gold, Big Star, and Haiwa.",
+                  "Trusted by HORECA buyers and leading modern trade outlets.",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <Icon icon="mdi:check-bold" className="text-sm text-primary" />
+                    </div>
+                    <span className="text-sm text-charcoal/70">{item}</span>
                   </div>
-                  <span className="text-sm text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white text-sm font-bold mt-8"
-            >
-              Learn More
-              <Icon icon="mdi:arrow-right" />
-            </Link>
-          </RevealOnScroll>
+              <Link
+                to="/about"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold text-secondary transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold hover:text-charcoal"
+              >
+                Learn More
+                <Icon icon="mdi:arrow-right" />
+              </Link>
+            </div>
+          </AnimatedContent>
         </div>
       </section>
 
-      {/* PORTFOLIO */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Our Portfolio"
             title="Leading FMCG Brands Across Sri Lanka"
@@ -247,46 +274,47 @@ export default function Home() {
             center
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-            <RevealOnScroll direction="left" className="md:col-span-6">
-              <div className="relative rounded-2xl overflow-hidden h-80 shadow-md group">
-                <img
-                  src={categories[0].image}
-                  alt={categories[0].title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-black/45" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-white text-xl font-bold">{categories[0].title}</h3>
-                  <p className="text-white/80 text-sm mt-2">{categories[0].description}</p>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-12">
+            <div className="md:col-span-6">
+              <AnimatedContent direction="horizontal" reverse>
+                <div className="group relative h-80 overflow-hidden rounded-2xl shadow-md">
+                  <img
+                    src={categories[0].image}
+                    alt={categories[0].title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-charcoal/45" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-xl font-bold text-secondary">{categories[0].title}</h3>
+                    <p className="mt-2 text-sm text-secondary/80">{categories[0].description}</p>
+                  </div>
                 </div>
-              </div>
-            </RevealOnScroll>
+              </AnimatedContent>
+            </div>
 
-            <div className="md:col-span-6 grid grid-cols-2 gap-5">
-              {categories.slice(1).map((item, i) => (
-                <RevealOnScroll key={item.title} direction="up" delay={i * 80}>
-                  <div className="relative rounded-2xl overflow-hidden h-40 shadow-md group">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:col-span-6">
+              {categories.slice(1).map((item, index) => (
+                <AnimatedContent key={item.title} direction="vertical" delay={index * 80}>
+                  <div className="group relative h-44 overflow-hidden rounded-2xl shadow-md sm:h-40">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/45" />
+                    <div className="absolute inset-0 bg-charcoal/45" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-white text-sm font-bold">{item.title}</h3>
+                      <h3 className="text-sm font-bold text-secondary">{item.title}</h3>
                     </div>
                   </div>
-                </RevealOnScroll>
+                </AnimatedContent>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ADVANTAGES */}
-      <section className="py-24 px-6 bg-cream">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-secondary px-6 py-24">
+        <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Competitive Advantages"
             title="What Sets Us Apart"
@@ -294,23 +322,24 @@ export default function Home() {
             center
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {whyUs.map((item, i) => (
-              <RevealOnScroll key={item.title} direction="up" delay={i * 80}>
-                <div className="bg-white rounded-2xl p-7 border border-primary/10 shadow-sm h-full">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                    style={{ backgroundColor: `${item.color}15` }}
-                  >
-                    <Icon icon={item.icon} className="text-2xl" style={{ color: item.color }} />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {whyUs.map((item, index) => {
+              const styles = accentClasses[item.accent];
+
+              return (
+                <AnimatedContent key={item.title} direction="vertical" delay={index * 80}>
+                  <div className="h-full rounded-2xl border border-primary/10 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
+                    <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${styles.bg}`}>
+                      <Icon icon={item.icon} className={`text-2xl ${styles.text}`} />
+                    </div>
+
+                    <h3 className="mb-2 font-bold text-charcoal">{item.title}</h3>
+
+                    <p className="text-sm leading-relaxed text-charcoal/65">{item.description}</p>
                   </div>
-
-                  <h3 className="text-charcoal font-bold mb-2">{item.title}</h3>
-
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-                </div>
-              </RevealOnScroll>
-            ))}
+                </AnimatedContent>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -319,3 +348,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;

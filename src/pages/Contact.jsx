@@ -1,41 +1,42 @@
-import { Icon } from "@iconify/react";
 import { useState } from "react";
-import SectionHeader from "../components/SectionHeader";
-import RevealOnScroll from "../components/RevealOnScroll";
+import { Icon } from "@iconify/react";
+
+import SectionHeader from "@/components/SectionHeader";
+import AnimatedContent from "@/components/AnimatedContent";
 
 const contactDetails = [
   {
     icon: "mdi:domain",
     label: "Company",
     value: "BIG HILL Lanka Pvt Ltd",
-    color: "#0E6B3C",
+    accent: "primary",
   },
   {
     icon: "mdi:web",
     label: "Website",
     value: "https://www.bighill.lk",
     link: "https://www.bighill.lk",
-    color: "#0E6B3C",
+    accent: "primary",
   },
   {
     icon: "mdi:email-outline",
     label: "Sales & General Queries",
     value: "order@bighill.lk",
     link: "mailto:order@bighill.lk",
-    color: "#0E6B3C",
+    accent: "primary",
   },
   {
     icon: "mdi:phone",
     label: "Hotline",
     value: "+94 77 167 2564",
     link: "tel:+94771672564",
-    color: "#0E6B3C",
+    accent: "primary",
   },
   {
     icon: "mdi:map-marker",
     label: "Address",
     value: "4th Floor, Forbes & Walkers Building, 38/46 Nawam Mawatha, Colombo 02",
-    color: "#D4A72C",
+    accent: "gold",
   },
 ];
 
@@ -55,7 +56,18 @@ const faqs = [
   },
 ];
 
-export default function Contact() {
+const accentClasses = {
+  primary: {
+    iconWrapper: "bg-primary/10",
+    icon: "text-primary",
+  },
+  gold: {
+    iconWrapper: "bg-gold/15",
+    icon: "text-gold",
+  },
+};
+
+function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -77,52 +89,31 @@ export default function Contact() {
 
   return (
     <main>
-      {/* HERO */}
-      <section
-        className="relative pt-32 pb-20 px-6 overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #0a3d24 0%, #0E6B3C 100%)",
-        }}
-      >
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5 translate-x-1/3 -translate-y-1/3" />
-        <div className="absolute bottom-0 left-1/4 w-32 h-32 rounded-full bg-gold/20" />
+      <section className="relative overflow-hidden bg-linear-to-br from-primary to-primary px-6 pb-20 pt-32">
+        <div className="absolute right-0 top-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-secondary/5" />
+        <div className="absolute bottom-0 left-1/4 h-32 w-32 rounded-full bg-gold/20" />
 
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-xs font-semibold mb-6">
+        <div className="relative z-10 mx-auto max-w-7xl text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-xs font-semibold text-secondary/80">
             <Icon icon="mdi:message-text-outline" />
             Contact Us
           </div>
 
-          <h1
-            className="text-white mb-5"
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontWeight: 600,
-              fontSize: "clamp(2.4rem, 5vw, 3.75rem)",
-              lineHeight: 1.1,
-            }}
-          >
-            Let's <span style={{ color: "#D4A72C", fontStyle: "italic" }}>Connect</span>
+          <h1 className="mb-5 font-serif text-5xl font-semibold leading-tight text-secondary sm:text-6xl lg:text-7xl">
+            Let's <span className="italic text-gold">Connect</span>
           </h1>
 
-          <p className="text-white/70 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-xl text-lg leading-relaxed text-secondary/70">
             Reach out for product inquiries, partnerships, supply discussions, or general business communication.
           </p>
         </div>
 
-        <div
-          className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-          style={{
-            background: "linear-gradient(to bottom, transparent 0%, #FAF8F3 100%)",
-          }}
-        />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-linear-to-b from-transparent to-secondary" />
       </section>
 
-      {/* MAIN */}
-      <section className="py-24 px-6 bg-cream">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* LEFT */}
-          <RevealOnScroll direction="left">
+      <section className="bg-secondary px-6 py-24">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 lg:grid-cols-2">
+          <AnimatedContent direction="horizontal" reverse>
             <div>
               <SectionHeader
                 eyebrow="Contact Information"
@@ -130,47 +121,49 @@ export default function Contact() {
                 subtitle="Connect with Big Hill Lanka through any of the following channels."
               />
 
-              <div className="space-y-4 mb-8">
-                {contactDetails.map((detail) => (
-                  <div
-                    key={detail.label}
-                    className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm"
-                  >
+              <div className="mb-8 space-y-4">
+                {contactDetails.map((detail) => {
+                  const styles = accentClasses[detail.accent];
+
+                  return (
                     <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                      style={{ backgroundColor: detail.color + "15" }}
+                      key={detail.label}
+                      className="flex items-start gap-4 rounded-2xl border border-primary/10 bg-secondary p-5 shadow-sm"
                     >
-                      <Icon icon={detail.icon} className="text-xl" style={{ color: detail.color }} />
-                    </div>
+                      <div
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${styles.iconWrapper}`}
+                      >
+                        <Icon icon={detail.icon} className={`text-xl ${styles.icon}`} />
+                      </div>
 
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-1">
-                        {detail.label}
-                      </p>
+                      <div>
+                        <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-charcoal/45">
+                          {detail.label}
+                        </p>
 
-                      {detail.link ? (
-                        <a
-                          href={detail.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-semibold text-charcoal hover:text-primary transition-colors"
-                        >
-                          {detail.value}
-                        </a>
-                      ) : (
-                        <p className="text-sm font-semibold text-charcoal leading-relaxed">{detail.value}</p>
-                      )}
+                        {detail.link ? (
+                          <a
+                            href={detail.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-semibold text-charcoal transition-colors hover:text-primary"
+                          >
+                            {detail.value}
+                          </a>
+                        ) : (
+                          <p className="text-sm font-semibold leading-relaxed text-charcoal">{detail.value}</p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
-              {/* MAP */}
-              <div className="mt-8 rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white">
-                <div className="relative w-full h-64 md:h-80">
+              <div className="mt-8 overflow-hidden rounded-2xl border border-primary/10 bg-secondary shadow-sm">
+                <div className="relative h-64 w-full md:h-80">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.760669812595!2d79.84748607571446!3d6.919189893080469!2m3!1f0!2f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bde843a117f%3A0xe381e653262c45a5!2sBig%20Hill%20Lanka%20Pvt%20Ltd.!5e0!3m2!1sen!2slk!4v1776688317420!5m2!1sen!2slk"
-                    className="w-full h-full border-0"
+                    className="h-full w-full border-0"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -179,80 +172,78 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </RevealOnScroll>
+          </AnimatedContent>
 
-          {/* RIGHT */}
-          <RevealOnScroll direction="right">
-            <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+          <AnimatedContent direction="horizontal">
+            <div className="rounded-3xl border border-primary/10 bg-secondary p-8 shadow-sm">
               <div className="mb-7">
-                <h2 className="text-xl font-extrabold text-charcoal mb-2">Send Us a Message</h2>
-                <p className="text-sm text-gray-500">Fill in the form below and we’ll get back to you soon.</p>
+                <h2 className="mb-2 text-xl font-extrabold text-charcoal">Send Us a Message</h2>
+                <p className="text-sm text-charcoal/60">Fill in the form below and we’ll get back to you soon.</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Name</label>
+                  <label className="mb-2 block text-sm font-semibold text-charcoal/70">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-primary"
+                    className="w-full rounded-xl border border-primary/10 bg-secondary px-4 py-3 text-charcoal outline-none transition-colors focus:border-primary"
                     placeholder="Your full name"
                   />
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Email</label>
+                  <label className="mb-2 block text-sm font-semibold text-charcoal/70">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-primary"
+                    className="w-full rounded-xl border border-primary/10 bg-secondary px-4 py-3 text-charcoal outline-none transition-colors focus:border-primary"
                     placeholder="you@example.com"
                   />
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Phone</label>
+                  <label className="mb-2 block text-sm font-semibold text-charcoal/70">Phone</label>
                   <input
                     type="text"
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-primary"
+                    className="w-full rounded-xl border border-primary/10 bg-secondary px-4 py-3 text-charcoal outline-none transition-colors focus:border-primary"
                     placeholder="+94 XX XXX XXXX"
                   />
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Message</label>
+                  <label className="mb-2 block text-sm font-semibold text-charcoal/70">Message</label>
                   <textarea
                     rows="5"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-primary resize-none"
+                    className="w-full resize-none rounded-xl border border-primary/10 bg-secondary px-4 py-3 text-charcoal outline-none transition-colors focus:border-primary"
                     placeholder="Write your message..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-primary hover:bg-[#09502d] text-white py-3 font-semibold transition-all duration-200"
+                  className="w-full rounded-xl bg-primary py-3 font-semibold text-secondary transition-all duration-200 hover:bg-gold hover:text-charcoal"
                 >
                   Send Message
                 </button>
               </form>
             </div>
-          </RevealOnScroll>
+          </AnimatedContent>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="bg-secondary px-6 py-20">
+        <div className="mx-auto max-w-4xl">
           <SectionHeader
             eyebrow="FAQ"
             title="Common Questions"
@@ -260,20 +251,22 @@ export default function Contact() {
             center
           />
 
-          <div className="space-y-4 mt-4">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="bg-cream rounded-2xl p-6 border border-gray-100">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon icon="mdi:help-circle" className="text-primary text-lg" />
-                  </div>
+          <div className="mt-4 space-y-4">
+            {faqs.map((faq, index) => (
+              <AnimatedContent key={faq.question} direction="vertical" distance={30} delay={index * 80}>
+                <div className="rounded-2xl border border-primary/10 bg-secondary p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <Icon icon="mdi:help-circle" className="text-lg text-primary" />
+                    </div>
 
-                  <div>
-                    <h4 className="font-bold text-charcoal text-sm mb-2">{faq.question}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                    <div>
+                      <h4 className="mb-2 text-sm font-bold text-charcoal">{faq.question}</h4>
+                      <p className="text-sm leading-relaxed text-charcoal/65">{faq.answer}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedContent>
             ))}
           </div>
         </div>
@@ -281,3 +274,5 @@ export default function Contact() {
     </main>
   );
 }
+
+export default Contact;

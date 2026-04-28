@@ -1,14 +1,13 @@
-// BrandNetwork.jsx
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import RevealOnScroll from "./RevealOnScroll";
+import AnimatedContent from "@/components/AnimatedContent";
 
-import sultangold from "../assets/sultangold.webp";
-import bigstar from "../assets/bigstar.webp";
-import haiwa from "../assets/haiwa.webp";
-import bikano from "../assets/bikano.webp";
-import bestari from "../assets/bestari.webp";
-import omypop from "../assets/omypop.webp";
+import sultangold from "@/assets/sultangold.webp";
+import bigstar from "@/assets/bigstar.webp";
+import haiwa from "@/assets/haiwa.webp";
+import bikano from "@/assets/bikano.webp";
+import bestari from "@/assets/bestari.webp";
+import omypop from "@/assets/omypop.webp";
 
 const brandGroups = [
   {
@@ -37,31 +36,23 @@ const brandGroups = [
   },
 ];
 
-export default function BrandNetwork() {
+function BrandNetwork() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-24">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl">
-        <RevealOnScroll direction="up">
+        <AnimatedContent direction="vertical">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary">
               <Icon icon="mdi:storefront-outline" className="text-base" />
               Our Brand Network
             </div>
 
-            <h2
-              className="text-charcoal"
-              style={{
-                fontFamily: "'Instrument Serif', serif",
-                fontWeight: 400,
-                fontSize: "clamp(2.4rem, 5vw, 4rem)",
-                lineHeight: 1.05,
-              }}
-            >
+            <h2 className="font-serif text-5xl font-normal leading-none text-charcoal sm:text-6xl lg:text-7xl">
               Owned and exclusive brands built for modern trade
             </h2>
 
@@ -70,15 +61,15 @@ export default function BrandNetwork() {
               consumers.
             </p>
           </div>
-        </RevealOnScroll>
+        </AnimatedContent>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {brandGroups.map((group, index) => (
-            <RevealOnScroll key={group.title} direction={index === 0 ? "left" : "right"} delay={index * 100}>
-              <div className="group h-full rounded-3xl border border-primary/10 bg-cream p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl">
+            <AnimatedContent key={group.title} direction="horizontal" reverse={index === 0} delay={index * 100}>
+              <div className="group h-full rounded-3xl border border-primary/10 bg-secondary p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl">
                 <div className="mb-6 flex items-start justify-between gap-5">
                   <div>
-                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">{group.eyebrow}</p>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">{group.eyebrow}</p>
 
                     <h3 className="text-2xl font-extrabold text-charcoal">{group.title}</h3>
                   </div>
@@ -106,11 +97,11 @@ export default function BrandNetwork() {
                   ))}
                 </div>
               </div>
-            </RevealOnScroll>
+            </AnimatedContent>
           ))}
         </div>
 
-        <RevealOnScroll direction="up" delay={160}>
+        <AnimatedContent direction="vertical" delay={160}>
           <div className="mt-6 rounded-3xl bg-primary p-7 text-white shadow-xl md:flex md:items-center md:justify-between md:gap-8">
             <div>
               <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-white/60">Market Reach</p>
@@ -122,14 +113,16 @@ export default function BrandNetwork() {
 
             <Link
               to="/products"
-              className="mt-6 inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-cream md:mt-0"
+              className="mt-6 inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-secondary md:mt-0"
             >
               View Product Range
               <Icon icon="mdi:arrow-right" />
             </Link>
           </div>
-        </RevealOnScroll>
+        </AnimatedContent>
       </div>
     </section>
   );
 }
+
+export default BrandNetwork;

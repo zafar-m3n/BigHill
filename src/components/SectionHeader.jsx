@@ -1,47 +1,43 @@
-import RevealOnScroll from "./RevealOnScroll";
+import AnimatedContent from "@/components/AnimatedContent";
 
-export default function SectionHeader({ eyebrow, title, subtitle, center = false, light = false }) {
+function SectionHeader({ eyebrow, title, subtitle, center = false, light = false }) {
   return (
     <div className={`mb-12 ${center ? "text-center" : ""}`}>
       {eyebrow && (
-        <RevealOnScroll direction="fade" className={`flex items-center gap-3 mb-3 ${center ? "justify-center" : ""}`}>
-          <span className="inline-block w-8 h-0.5 bg-gold rounded-full" />
-          <span
-            className={`text-xs uppercase tracking-widest ${light ? "text-gold" : "text-primary"}`}
-            style={{ fontWeight: 700 }}
-          >
-            {eyebrow}
-          </span>
-          <span className="inline-block w-8 h-0.5 bg-gold rounded-full" />
-        </RevealOnScroll>
+        <AnimatedContent direction="vertical" distance={20}>
+          <div className={`mb-3 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+            <span className="inline-block h-0.5 w-8 rounded-full bg-gold" />
+            <span className={`text-xs font-bold uppercase tracking-widest ${light ? "text-gold" : "text-primary"}`}>
+              {eyebrow}
+            </span>
+            <span className="inline-block h-0.5 w-8 rounded-full bg-gold" />
+          </div>
+        </AnimatedContent>
       )}
 
-      <RevealOnScroll direction="up" delay={eyebrow ? 80 : 0}>
+      <AnimatedContent direction="vertical" distance={30} delay={eyebrow ? 80 : 0}>
         <h2
-          style={{
-            fontFamily: "'Instrument Serif', serif",
-            fontWeight: 400,
-            fontSize: "clamp(2rem, 4vw, 2.75rem)",
-            lineHeight: 1.2,
-            letterSpacing: "-0.01em",
-            color: light ? "white" : "#1E1E1E",
-          }}
+          className={`font-serif text-4xl font-normal leading-tight tracking-tight md:text-5xl ${
+            light ? "text-secondary" : "text-charcoal"
+          }`}
         >
           {title}
         </h2>
-      </RevealOnScroll>
+      </AnimatedContent>
 
       {subtitle && (
-        <RevealOnScroll direction="up" delay={eyebrow ? 140 : 60}>
+        <AnimatedContent direction="vertical" distance={30} delay={eyebrow ? 140 : 60}>
           <p
-            className={`mt-4 text-base leading-relaxed max-w-2xl ${
+            className={`mt-4 max-w-2xl text-base leading-relaxed ${
               center ? "mx-auto" : ""
-            } ${light ? "text-white/70" : "text-gray-600"}`}
+            } ${light ? "text-secondary/70" : "text-charcoal/65"}`}
           >
             {subtitle}
           </p>
-        </RevealOnScroll>
+        </AnimatedContent>
       )}
     </div>
   );
 }
+
+export default SectionHeader;

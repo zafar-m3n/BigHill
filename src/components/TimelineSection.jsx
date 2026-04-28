@@ -1,5 +1,6 @@
-// TimelineSection.jsx
+import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
+import AnimatedContent from "@/components/AnimatedContent";
 
 const milestones = [
   {
@@ -50,7 +51,7 @@ const accentClasses = {
     iconBg: "bg-primary",
   },
   gold: {
-    pill: "bg-gold/15 text-[#8a6b14]",
+    pill: "bg-gold/15 text-gold",
     iconBg: "bg-gold",
   },
   red: {
@@ -59,45 +60,70 @@ const accentClasses = {
   },
 };
 
-export default function TimelineSection() {
+function TimelineSection() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleChange = () => {
+      setIsDesktop(mediaQuery.matches);
+    };
+
+    handleChange();
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
   return (
     <div className="relative">
-      <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-primary/30 via-gold/30 to-red/20 -translate-x-1/2" />
+      <div className="absolute bottom-0 left-6 top-0 w-px bg-linear-to-b from-primary/30 via-gold/30 to-red/20 md:left-1/2 md:-translate-x-1/2" />
 
-      <div className="space-y-12">
-        {milestones.map((m, i) => {
-          const styles = accentClasses[m.accent];
+      <div className="space-y-10 md:space-y-12">
+        {milestones.map((milestone, index) => {
+          const styles = accentClasses[milestone.accent];
+          const isEven = index % 2 === 0;
 
           return (
-            <div
-              key={m.title}
-              className={`flex flex-col md:flex-row gap-6 md:gap-10 items-start ${
-                i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
+            <AnimatedContent
+              key={milestone.title}
+              direction="horizontal"
+              reverse={isDesktop ? isEven : false}
+              distance={40}
+              delay={index * 80}
             >
-              <div className={`w-full md:w-5/12 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                <div className={`inline-block px-3 py-1 rounded-full text-xs mb-2 font-bold ${styles.pill}`}>
-                  {m.label}
+              <div
+                className={`relative flex gap-5 pl-16 md:gap-10 md:pl-0 ${
+                  isEven ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                <div className={`w-full md:w-5/12 ${isEven ? "md:text-right" : "md:text-left"}`}>
+                  <div className={`mb-2 inline-block rounded-full px-3 py-1 text-xs font-bold ${styles.pill}`}>
+                    {milestone.label}
+                  </div>
+
+                  <h3 className="mb-2 text-lg font-bold text-charcoal">{milestone.title}</h3>
+
+                  <p className="text-sm leading-relaxed text-charcoal/65">{milestone.description}</p>
                 </div>
 
-                <h3 className="text-lg text-charcoal mb-2 font-bold">{m.title}</h3>
-
-                <p className="text-sm text-gray-600 leading-relaxed">{m.description}</p>
-              </div>
-
-              <div className="hidden md:flex w-2/12 justify-center">
-                <div
-                  className={`w-12 h-12 rounded-full ${styles.iconBg} flex items-center justify-center shadow-lg z-10`}
-                >
-                  <Icon icon={m.icon} className="text-white text-xl" />
+                <div className="absolute left-0 top-0 flex w-12 justify-center md:static md:w-2/12">
+                  <div
+                    className={`z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-lg shadow-charcoal/10 ${styles.iconBg}`}
+                  >
+                    <Icon icon={milestone.icon} className="text-xl text-secondary" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="w-full md:w-5/12" />
-            </div>
+                <div className="hidden w-full md:block md:w-5/12" />
+              </div>
+            </AnimatedContent>
           );
         })}
       </div>
     </div>
   );
 }
+
+export default TimelineSection;

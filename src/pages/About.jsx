@@ -1,15 +1,15 @@
-// About.jsx
 import { Icon } from "@iconify/react";
-import SectionHeader from "../components/SectionHeader";
-import TimelineSection from "../components/TimelineSection";
-import LeadershipCard from "../components/LeadershipCard";
-import CTASection from "../components/CTASection";
-import RevealOnScroll from "../components/RevealOnScroll";
 
-import about1 from "../assets/about1.webp";
-import about2 from "../assets/about2.webp";
-import about3 from "../assets/about3.webp";
-import about4 from "../assets/about4.webp";
+import SectionHeader from "@/components/SectionHeader";
+import TimelineSection from "@/components/TimelineSection";
+import LeadershipCard from "@/components/LeadershipCard";
+import CTASection from "@/components/CTASection";
+import AnimatedContent from "@/components/AnimatedContent";
+
+import about1 from "@/assets/about1.webp";
+import about2 from "@/assets/about2.webp";
+import about3 from "@/assets/about3.webp";
+import about4 from "@/assets/about4.webp";
 
 const leadership = [
   {
@@ -43,57 +43,48 @@ const leadership = [
   },
 ];
 
-export default function About() {
+function About() {
   return (
     <main>
-      <section
-        className="relative pt-32 pb-20 px-6 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #0a5230 0%, #0E6B3C 100%)" }}
-      >
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5 translate-x-1/3 -translate-y-1/3" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-gold/10 -translate-x-1/3 translate-y-1/3" />
+      <section className="relative overflow-hidden bg-linear-to-br from-primary to-primary px-6 pb-20 pt-32">
+        <div className="absolute right-0 top-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-secondary/5" />
+        <div className="absolute bottom-0 left-0 h-64 w-64 -translate-x-1/3 translate-y-1/3 rounded-full bg-gold/10" />
 
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/80 text-xs mb-6 font-semibold">
-            <Icon icon="mdi:information" />
-            About Big Hill
-          </div>
+        <div className="relative z-10 mx-auto max-w-7xl text-center">
+          <AnimatedContent direction="vertical" distance={24}>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2 text-xs font-semibold text-secondary/80">
+              <Icon icon="mdi:information" />
+              About Big Hill
+            </div>
+          </AnimatedContent>
 
-          <h1
-            className="text-white mb-6"
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontWeight: 600,
-              fontSize: "clamp(2.4rem, 5vw, 3.75rem)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.015em",
-            }}
-          >
-            Building Trust Through <span style={{ color: "#D4A72C", fontStyle: "italic" }}>Quality Distribution</span>
-          </h1>
+          <AnimatedContent direction="vertical" distance={32} delay={80}>
+            <h1 className="mx-auto mb-6 max-w-4xl font-serif text-5xl font-semibold leading-tight tracking-tight text-secondary sm:text-6xl lg:text-7xl">
+              Building Trust Through <span className="italic text-gold">Quality Distribution</span>
+            </h1>
+          </AnimatedContent>
 
-          <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
-            A Sri Lankan FMCG distributor, importer, exporter, and HORECA supply partner built around reliable products,
-            strong partnerships, and dependable market execution.
-          </p>
+          <AnimatedContent direction="vertical" distance={32} delay={150}>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-secondary/70">
+              A Sri Lankan FMCG distributor, importer, exporter, and HORECA supply partner built around reliable
+              products, strong partnerships, and dependable market execution.
+            </p>
+          </AnimatedContent>
         </div>
 
-        <div
-          className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent 0%, #FAF8F3 100%)" }}
-        />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-linear-to-b from-transparent to-secondary" />
       </section>
 
-      <section className="py-24 px-6 bg-cream">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <RevealOnScroll direction="left">
+      <section className="bg-secondary px-6 py-24 overflow-hidden">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          <AnimatedContent direction="horizontal" reverse>
             <div>
               <SectionHeader
                 eyebrow="Who We Are"
                 title="Leading distributor and exporter in Sri Lanka’s food industry"
               />
 
-              <div className="space-y-5 text-gray-600 text-base leading-relaxed">
+              <div className="space-y-5 text-base leading-relaxed text-charcoal/65">
                 <p>
                   Established in 2019, BIG HILL Lanka Pvt Ltd is a leading distributor and exporter in Sri Lanka’s food
                   industry. We began our journey by exporting premium spices and seafood, and have since expanded to
@@ -114,76 +105,70 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-5 mt-10">
+              <div className="mt-10 grid grid-cols-2 gap-5">
                 {[
                   { value: "2019", label: "Established" },
-                  { value: "HORECA", label: "Key Channel" },
-                  { value: "6", label: "Portfolio Brands" },
-                  { value: "Global", label: "Export Reach" },
+                  { value: "750+", label: "HORECA" },
+                  { value: "1,000+", label: "Large Modern Markets" },
+                  { value: "2,000+", label: "Modern Markets" },
+                  { value: "40,000+", label: "Retailers" },
+                  { value: "Islandwide", label: "Coverage" },
                 ].map((s) => (
-                  <div key={s.label} className="bg-white rounded-2xl p-5 border border-primary/10 shadow-sm">
-                    <div className="text-3xl text-primary font-extrabold">{s.value}</div>
-                    <div className="text-sm text-gray-500 mt-1">{s.label}</div>
+                  <div key={s.label} className="rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-extrabold text-primary">{s.value}</div>
+                    <div className="mt-1 text-xs md:text-sm text-charcoal/55">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
-          </RevealOnScroll>
+          </AnimatedContent>
 
-          <RevealOnScroll direction="right">
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <img
-                  src={about1}
-                  alt="Big Hill operations"
-                  className="rounded-2xl w-full h-48 object-cover shadow-md"
-                />
-                <img src={about2} alt="Big Hill team" className="rounded-2xl w-full h-48 object-cover shadow-md mt-8" />
-                <img
-                  src={about3}
-                  alt="Big Hill distribution"
-                  className="rounded-2xl w-full h-48 object-cover shadow-md -mt-4"
-                />
-                <img
-                  src={about4}
-                  alt="Big Hill quality"
-                  className="rounded-2xl w-full h-48 object-cover shadow-md mt-4"
-                />
-              </div>
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4">
+              <img src={about1} alt="Big Hill operations" className="h-48 w-full rounded-2xl object-cover shadow-md" />
+              <img src={about2} alt="Big Hill team" className="mt-8 h-48 w-full rounded-2xl object-cover shadow-md" />
+              <img
+                src={about3}
+                alt="Big Hill distribution"
+                className="-mt-4 h-48 w-full rounded-2xl object-cover shadow-md"
+              />
+              <img
+                src={about4}
+                alt="Big Hill quality"
+                className="mt-4 h-48 w-full rounded-2xl object-cover shadow-md"
+              />
+            </div>
 
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-2xl pointer-events-auto z-10">
-                  <Icon icon="mdi:leaf" className="text-white text-3xl" />
-                </div>
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <div className="pointer-events-auto z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary shadow-2xl">
+                <Icon icon="mdi:leaf" className="text-3xl text-secondary" />
               </div>
             </div>
-          </RevealOnScroll>
+          </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <RevealOnScroll direction="left">
-            <div className="rounded-3xl p-8 md:p-10 text-white shadow-sm bg-primary border border-primary/10">
-              <div className="flex items-center justify-between gap-4 mb-4">
-                <h2 className="text-3xl" style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 600 }}>
-                  What We Do
-                </h2>
+      <section className="bg-white px-6 py-24 overflow-hidden">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 lg:grid-cols-2">
+          <AnimatedContent direction="horizontal" reverse>
+            <div className="rounded-3xl border border-primary/10 bg-primary p-8 text-secondary shadow-sm md:p-10">
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <h2 className="font-serif text-3xl font-semibold">What We Do</h2>
                 <Icon icon="mdi:ferry" className="text-4xl text-gold" />
               </div>
 
-              <div className="gold-line mb-6" />
+              <div className="mb-6 inline-block h-1 w-14 rounded-sm bg-gold" />
 
-              <p className="text-white/85 leading-relaxed">
+              <p className="leading-relaxed text-secondary/85">
                 As a leading food import and export company, we specialize in delivering high-demand FMCG products to
                 our customers globally. Our expertise spans exporting seafood, spices, and coconut products to diverse
                 markets, with a strong network of professional buyers and distributors across Canada, the USA, UAE,
                 Qatar, Hong Kong, Thailand, and beyond.
               </p>
             </div>
-          </RevealOnScroll>
+          </AnimatedContent>
 
-          <RevealOnScroll direction="right">
+          <AnimatedContent direction="horizontal">
             <div className="grid grid-cols-1 gap-5">
               {[
                 {
@@ -202,26 +187,24 @@ export default function About() {
                   text: "Expanding globally while leading locally, our goal is to drive sustained growth and customer satisfaction by innovating our product portfolio and fortifying our distribution networks.",
                 },
               ].map((item) => (
-                <div key={item.title} className="rounded-3xl p-8 bg-red text-white shadow-sm border border-red/10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center">
-                      <Icon icon={item.icon} className="text-white text-2xl" />
+                <div key={item.title} className="rounded-3xl border border-red/10 bg-red p-8 text-secondary shadow-sm">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/15">
+                      <Icon icon={item.icon} className="text-2xl text-secondary" />
                     </div>
-                    <h3 className="text-2xl" style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 600 }}>
-                      {item.title}
-                    </h3>
+                    <h3 className="font-serif text-2xl font-semibold">{item.title}</h3>
                   </div>
 
-                  <p className="text-white/85 leading-relaxed">{item.text}</p>
+                  <p className="leading-relaxed text-secondary/85">{item.text}</p>
                 </div>
               ))}
             </div>
-          </RevealOnScroll>
+          </AnimatedContent>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-cream">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-secondary px-6 py-24">
+        <div className="mx-auto max-w-5xl">
           <SectionHeader
             eyebrow="Our Growth Journey"
             title="How Big Hill Lanka Has Grown"
@@ -233,8 +216,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Company Leadership"
             title="The People Behind Big Hill Lanka"
@@ -242,15 +225,24 @@ export default function About() {
             center
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-6">
-            {leadership.map((person) => (
-              <LeadershipCard key={person.name} {...person} />
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {leadership.map((person, index) => (
+              <AnimatedContent key={person.name} direction="vertical" distance={32} delay={index * 80}>
+                <LeadershipCard {...person} />
+              </AnimatedContent>
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection />
+      <CTASection
+        headline="Let’s Build Long-Term Partnerships"
+        subtitle="From distribution to brand growth, we collaborate with businesses that value reliability, scale, and consistent market execution across Sri Lanka."
+        primaryLabel="Contact Our Team"
+        primaryTo="/contact"
+      />
     </main>
   );
 }
+
+export default About;
