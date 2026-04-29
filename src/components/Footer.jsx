@@ -46,8 +46,8 @@ function Footer() {
             </Link>
 
             <p className="mb-6 text-sm leading-relaxed text-secondary/65">
-              Trusted importer & distributor of premium FMCG, serving supermarkets, HORECA, and wholesale markets
-              worldwide.
+              Bringing premium FMCG to every shelf, kitchen, and market—serving retail, HORECA, and wholesale
+              nationwide.
             </p>
 
             <div className="flex items-center gap-3">

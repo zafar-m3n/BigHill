@@ -306,14 +306,7 @@ function Products() {
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
               {filtered.map((product, index) => (
                 <AnimatedContent key={product.id} direction="vertical" distance={32} delay={(index % 4) * 50}>
-                  <ProductCard
-                    image={product.image}
-                    name={product.name}
-                    brand={product.brand}
-                    description={product.description}
-                    variant={product.packs}
-                    category={product.category}
-                  />
+                  <ProductCard product={product} />
                 </AnimatedContent>
               ))}
             </div>

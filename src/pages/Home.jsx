@@ -136,8 +136,8 @@ function Home() {
               </h2>
 
               <p className="mb-10 max-w-xl text-base leading-relaxed text-secondary/75">
-                Trusted importer & distributor of premium FMCG, serving supermarkets, HORECA, and wholesale markets
-                worldwide.
+                Bringing premium FMCG to every shelf, kitchen, and market—serving retail, HORECA, and wholesale
+                nationwide.
               </p>
             </AnimatedContent>
 
@@ -199,9 +199,7 @@ function Home() {
                   key={item.label}
                   className="rounded-2xl border border-primary/10 bg-secondary p-3 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
                 >
-                  <div className="text-2xl font-extrabold leading-tight text-primary lg:text-2xl">
-                    {item.value}
-                  </div>
+                  <div className="text-2xl font-extrabold leading-tight text-primary lg:text-2xl">{item.value}</div>
                   <div className="mt-2 text-xs font-semibold uppercase tracking-wide text-charcoal/55">
                     {item.label}
                   </div>

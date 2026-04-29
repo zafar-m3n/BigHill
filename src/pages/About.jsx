@@ -10,6 +10,10 @@ import about1 from "@/assets/about1.webp";
 import about2 from "@/assets/about2.webp";
 import about3 from "@/assets/about3.webp";
 import about4 from "@/assets/about4.webp";
+import faizal from "@/assets/faizal.jpg";
+import fahumy from "@/assets/fahumy.jfif";
+import rishard from "@/assets/rishard.png";
+import nuwan from "@/assets/nuwan.jpeg";
 
 const leadership = [
   {
@@ -17,7 +21,7 @@ const leadership = [
     role: "Founder & Director",
     description:
       "Faizal sets the company's strategic vision. With over a decade of experience across sales, brand management, and distribution, this role guarantees operational effectiveness from product development through market delivery.",
-    image: "https://picsum.photos/seed/faizal-rasan/300/300",
+    image: faizal,
     featured: true,
   },
   {
@@ -25,21 +29,21 @@ const leadership = [
     role: "Head of Marketing & Brand Strategy",
     description:
       "Rishard is the prime architect of our consumer engagement and brand identity. This leader utilizes over 20 years of expertise to drive high-impact marketing campaigns and achieve sustained market share growth.",
-    image: "https://picsum.photos/seed/rishard-maharoof/300/300",
+    image: rishard,
   },
   {
     name: "Fahumy Razan",
     role: "Head of Commercial Partnerships",
     description:
       "Fahumy is focused on expanding our market footprint and revenue. Leveraging over 15 years of expertise in commercial strategy, this function secures high-value distribution deals and key strategic alliances globally.",
-    image: "https://picsum.photos/seed/fahumy-razan/300/300",
+    image: fahumy,
   },
   {
     name: "Nuwan Bandara",
     role: "Finance Manager",
     description:
       "Nuwan ensures the company's fiscal stability and compliance. Combining deep financial planning with over thirteen years of accounting experience, this position provides rigorous oversight crucial for long-term, sustainable growth.",
-    image: "https://picsum.photos/seed/nuwan-bandara/300/300",
+    image: nuwan,
   },
 ];
 
