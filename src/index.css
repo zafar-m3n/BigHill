@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #0f3d2e;
+  --color-red: #b32025;
+  --color-gold: #d4a72c;
+  --color-secondary: #f0faf2;
+  --color-charcoal: #1e1e1e;
+
+  /* Fonts */
+  --font-sans: "Manrope", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  /* Marquee animation */
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
